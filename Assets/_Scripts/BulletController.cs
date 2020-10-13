@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class BulletController : MonoBehaviour, IApplyDamage
 {
     public float verticalSpeed;
     public float verticalBoundary;
@@ -37,6 +37,23 @@ public class BulletController : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Bullet collided with: " + other.gameObject.name);
+        ApplyDamage();
         bulletManager.ReturnBullet(gameObject);
+    }
+
+    public void ApplyDamage()
+    {
+        switch (this.gameObject.name)
+        {
+            case "Bullet":
+                Debug.Log("5 damage");
+                break;
+            case "Fat Bullet":
+                Debug.Log("10 damage");
+                break;
+            case "PulsingBullet":
+                Debug.Log("20 damage");
+                break;
+        }
     }
 }

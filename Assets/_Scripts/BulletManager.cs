@@ -6,6 +6,9 @@ using UnityEngine;
 public class BulletManager : MonoBehaviour
 {
     public GameObject bullet;
+    public GameObject fatBullet;
+    public GameObject pulsingBullet;
+
     public int MaxBullets;
 
     private Queue<GameObject> m_bulletPool;
